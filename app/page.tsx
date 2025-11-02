@@ -3,6 +3,8 @@ import AboutUs from "./components/AboutUs";
 import Features from "./components/Features";
 import Trainers from "./components/Trainers";
 import Courses from "./components/Courses";
+import Reviews from "./components/Reviews";
+import Instagram from "./components/Instagram";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
   <Features />
   <Trainers />
   <Courses />
+  <Reviews />
+  <Instagram />
     </div>
   );
 }

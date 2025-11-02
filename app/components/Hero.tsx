@@ -20,7 +20,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex w-full items-center justify-center px-6 py-20 md:py-28">
+    <section className="relative flex w-full items-center justify-center px-6 py-20 md:py-28 min-h-screen">
       <div className="mx-auto w-full max-w-6xl">
         <div className="flex w-full flex-col-reverse gap-10 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">

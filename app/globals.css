@@ -210,5 +210,38 @@ a, .text-var-text {
   .btn-enroll, .shadow-soft { transition: none !important; }
 }
 
+/* Reviews / Carousel helpers */
+.reviews-track { -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+.review-card { box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+.carousel-btn { transition: background 150ms ease, transform 150ms ease; }
+.carousel-btn:hover { transform: translateY(-2px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-track { scroll-behavior: auto; }
+  .carousel-btn { transition: none !important; }
+}
+
+/* Slider-specific */
+.slider-track { will-change: transform; }
+.slider-track > .review-card { backface-visibility: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .slider-track { transition: none !important; }
+}
+
+/* Instagram grid */
+.insta-card { border-radius: 8px; overflow: hidden; position: relative; }
+.insta-card img { display: block; }
+.insta-card:hover, .insta-card:focus-within { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(255,207,37,0.06); }
+.insta-overlay { transition: opacity 180ms ease; }
+.insta-card:hover .insta-overlay, .insta-card:focus-within .insta-overlay { background: rgba(0,0,0,0.28); opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .insta-card { transition: none !important; }
+  .insta-overlay { transition: none !important; }
+}
+
+
+
 
 
