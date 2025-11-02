@@ -5,6 +5,8 @@ import Trainers from "./components/Trainers";
 import Courses from "./components/Courses";
 import Reviews from "./components/Reviews";
 import Instagram from "./components/Instagram";
+import WhyChooseUs from "./components/WhyChooseUs";
+import CTASection from "./components/CTASection";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
   <Trainers />
   <Courses />
   <Reviews />
+  <WhyChooseUs />
+  <CTASection />
   <Instagram />
     </div>
   );

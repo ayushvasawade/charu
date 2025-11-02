@@ -14,7 +14,7 @@ type Trainer = {
 const TRAINERS: Trainer[] = [
   {
     id: "t1",
-    name: "Ananya Sharma",
+    name: "Aakash",
     bio: "Senior Trader & Mentor with 8+ years of live trading experience across equities and derivatives.",
     expertise: ["Live Execution", "Risk Management", "Strategy Building"],
     image: "/trainer-1.png",
@@ -25,10 +25,10 @@ const TRAINERS: Trainer[] = [
   },
   {
     id: "t2",
-    name: "Rohan Mehta",
+    name: "Gargi Barge",
     bio: "Market analyst and educator focused on practical, result-driven trading systems and psychology.",
     expertise: ["Technical Analysis", "System Design", "Community Coaching"],
-    image: "/trainer-2.png",
+    image: "public/images/Aakash dada nd Gargi didi.png",
     socials: [
       { href: "#", type: "linkedin" },
       { href: "#", type: "twitter" },

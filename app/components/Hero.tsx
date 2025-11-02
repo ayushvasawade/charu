@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import CTAButton from "./CTAButton";
+import { useEffect, useRef, useState } from "react";
+// CTAButton removed from Hero: Explore Courses link will reuse its styles
 
 export default function Hero() {
   const [showUnderline, setShowUnderline] = useState(false);
   const [ctaIn, setCtaIn] = useState(false);
   const [imageIn, setImageIn] = useState(false);
+  // Elfsight embed will be injected via script; no ref needed
 
   useEffect(() => {
     const u = setTimeout(() => setShowUnderline(true), 300);
@@ -17,6 +18,46 @@ export default function Hero() {
       clearTimeout(c);
       clearTimeout(i);
     };
+  }, []);
+
+  // Inject Elfsight platform script once on client mount
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (document.getElementById("elfsight-platform-script")) return;
+
+    const script = document.createElement("script");
+    script.id = "elfsight-platform-script";
+    script.src = "https://elfsightcdn.com/platform.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    // no cleanup: keep script for the lifetime of the app (Elfsight re-uses it)
+  }, []);
+
+  // Inject CSS override to hide Elfsight credits/badge inside our specific widget container
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (document.getElementById("elfsight-hide-badge-style")) return;
+
+    const style = document.createElement("style");
+    style.id = "elfsight-hide-badge-style";
+    style.innerHTML = `
+      /* Hide Elfsight badge/credit elements for the specific app instance */
+      .elfsight-app-e7bfb344-26d7-4010-91de-bc46ae989e20 .elfsight-badge,
+      .elfsight-app-e7bfb344-26d7-4010-91de-bc46ae989e20 .elfsight-credit,
+      .elfsight-app-e7bfb344-26d7-4010-91de-bc46ae989e20 .elfsight-copyright,
+      .elfsight-app-e7bfb344-26d7-4010-91de-bc46ae989e20 a[href*="elfsight"] {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+      }
+    `;
+
+    document.head.appendChild(style);
+
+    // keep style for the app lifetime; no cleanup necessary
   }, []);
 
   return (
@@ -45,19 +86,28 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <div className={`transform transition-all duration-500 ${ctaIn ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
-                <CTAButton />
-              </div>
-
-              <a href="#courses" className="text-sm font-medium text-var-text hover:text-[var(--accent)] self-start sm:self-center">
+              <a
+                href="#courses"
+                className="inline-flex w-full md:w-auto items-center justify-center rounded-full bg-[var(--cta)] px-5 py-3 text-sm font-semibold text-black shadow-cta transition-transform duration-200 hover:scale-105 hover:shadow-cta-glow focus:outline-none focus:ring-4 focus:ring-[var(--cta-ring)] self-start sm:self-center"
+              >
                 Explore Courses
               </a>
             </div>
           </div>
 
-          <div className={`w-full max-w-sm rounded-2xl bg-[var(--subtle)] p-6 shadow-soft transition-transform duration-700 ease-out md:block ${imageIn ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
-            <div className="h-48 w-full rounded-lg bg-gradient-to-tr from-white to-[var(--accent)]/10" />
-            <p className="mt-4 text-sm text-[var(--charcoal)]">Live market dashboard preview</p>
+          <div
+            className={`w-full md:flex-1 max-w-none rounded-none bg-transparent p-0 transition-transform duration-700 ease-out md:block ${
+              imageIn ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+          >
+            {/* TradingView widget container. We programmatically insert the TradingView embed script
+                so the JSON config remains intact and initializes inside this container. */}
+              {/* Elfsight Stocks embed (replaces previous TradingView widget) */}
+              {/* Elfsight Stocks | Untitled Stocks */}
+              <div
+                className="elfsight-app-e7bfb344-26d7-4010-91de-bc46ae989e20 h-[40vh] md:h-[60vh] lg:h-[80vh] w-full md:w-[480px] lg:w-[640px] md:ml-auto rounded-none overflow-hidden"
+                data-elfsight-app-lazy
+              />
           </div>
         </div>
       </div>

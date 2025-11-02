@@ -3,6 +3,7 @@
 import React from "react";
 import Loader from "./Loader";
 import SiteHeader from "./SiteHeader";
+import Footer from "./Footer";
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <Loader />
       <SiteHeader />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Aakash and Gargi">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#FFCF25" />
+      <stop offset="1" stop-color="#FF9F00" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="#F3F3F3" />
+  <circle cx="120" cy="160" r="70" fill="#DDD" />
+  <circle cx="280" cy="160" r="70" fill="#CCC" />
+  <rect x="40" y="260" width="320" height="80" rx="12" fill="url(#g)" />
+  <text x="50%" y="295" font-family="Inter, Arial, sans-serif" font-size="18" fill="#111" text-anchor="middle">Aakash & Gargi</text>
+</svg>
