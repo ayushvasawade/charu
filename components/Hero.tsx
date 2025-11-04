@@ -47,6 +47,14 @@ export default function Hero() {
       .elfsight-app-e7bfb344-26d7-4010-91de-bc46ae989e20 .elfsight-credit,
       .elfsight-app-e7bfb344-26d7-4010-91de-bc46ae989e20 .elfsight-copyright,
       .elfsight-app-e7bfb344-26d7-4010-91de-bc46ae989e20 a[href*="elfsight"],
+      /* Hide ALL Elfsight links and CTAs - be very aggressive */
+      a[href*="elfsight"],
+      a[href*="elfsight.com"],
+      a[href*="elfsightcdn.com"],
+      [class*="elfsight"] a,
+      [class*="elfsight"] button,
+      [id*="elfsight"] a,
+      [id*="elfsight"] button,
       /* Hide any attribution or credits near the widget */
       .elfsight-app-e7bfb344-26d7-4010-91de-bc46ae989e20 ~ *[class*="attribution"],
       .elfsight-app-e7bfb344-26d7-4010-91de-bc46ae989e20 ~ *[class*="credit"],
@@ -102,7 +110,8 @@ export default function Hero() {
         'attribution', 'credit', 'copyright', 'photo by', 'image by',
         'free stock', 'stock image', 'stock photo', 'photo credit',
         'image credit', 'source', 'pexels', 'unsplash', 'pixabay',
-        'freepik', 'shutterstock', 'getty', 'istock', 'adobe stock'
+        'freepik', 'shutterstock', 'getty', 'istock', 'adobe stock',
+        'elfsight', 'powered by', 'create widget', 'get widget'
       ];
 
       // Check all elements in the hero section - especially buttons and links
@@ -132,12 +141,27 @@ export default function Hero() {
             id.includes(keyword)
           );
           
-          // Check for links to stock photo sites
+          // Check for links to stock photo sites or Elfsight
           const links = element.querySelectorAll('a');
           const hasStockLink = Array.from(links).some(link => {
             const href = link.href?.toLowerCase() || '';
-            return attributionKeywords.some(keyword => href.includes(keyword));
+            return attributionKeywords.some(keyword => href.includes(keyword)) ||
+                   href.includes('elfsight') || href.includes('elfsight.com') || href.includes('elfsightcdn.com');
           });
+          
+          // Also check if the element itself is an Elfsight link
+          if (tagName === 'a') {
+            const href = (element as HTMLAnchorElement).href?.toLowerCase() || '';
+            if (href.includes('elfsight') || href.includes('elfsight.com') || href.includes('elfsightcdn.com')) {
+              element.style.display = 'none';
+              element.style.visibility = 'hidden';
+              element.style.height = '0';
+              element.style.width = '0';
+              element.style.opacity = '0';
+              element.style.pointerEvents = 'none';
+              return;
+            }
+          }
 
           // Get position relative to widget
           const rect = element.getBoundingClientRect();
@@ -148,7 +172,8 @@ export default function Hero() {
           // Hide if:
           // 1. It contains attribution keywords
           // 2. It's a button/link below the widget (within 500px)
-          // 3. It has stock photo links
+          // 3. It has stock photo links or Elfsight links
+          // 4. It's any link/button below the widget (hide everything)
           if (hasAttribution || hasStockLink || (isButtonOrLink && isBelowWidget && distanceFromWidget < 500)) {
             element.style.display = 'none';
             element.style.visibility = 'hidden';
@@ -162,7 +187,7 @@ export default function Hero() {
         });
         
         // Specifically target ALL buttons and links below the widget - hide everything
-        const buttonsAndLinks = heroSection.querySelectorAll('button, a, [role="button"], [class*="button"], [class*="btn"]');
+        const buttonsAndLinks = heroSection.querySelectorAll('button, a, [role="button"], [class*="button"], [class*="btn"], [class*="cta"], [class*="link"]');
         buttonsAndLinks.forEach((el) => {
           if (el === widget || widget.contains(el)) return;
           
@@ -175,12 +200,20 @@ export default function Hero() {
           const isBelowWidget = rect.top > widgetRect.bottom;
           const distanceFromWidget = isBelowWidget ? rect.top - widgetRect.bottom : 0;
           
+          // Check if it's an Elfsight link
+          let isElfsightLink = false;
+          const elementTagName = element.tagName?.toLowerCase() || '';
+          if (elementTagName === 'a') {
+            const href = (element as HTMLAnchorElement).href?.toLowerCase() || '';
+            isElfsightLink = href.includes('elfsight') || href.includes('elfsight.com') || href.includes('elfsightcdn.com');
+          }
+          
           if (isBelowWidget && distanceFromWidget < 500) {
-            // Hide if it contains stock-related text OR if it's a small button/link (likely attribution button)
+            // Hide if it contains stock-related text OR if it's a small button/link (likely attribution button) OR if it's Elfsight
             const hasStockText = attributionKeywords.some(keyword => text.includes(keyword));
             const isSmallElement = (rect.height < 50 && rect.width < 200) || text.length < 50;
             
-            if (hasStockText || isSmallElement) {
+            if (hasStockText || isSmallElement || isElfsightLink) {
               element.style.display = 'none';
               element.style.visibility = 'hidden';
               element.style.height = '0';

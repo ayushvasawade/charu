@@ -8,5 +8,15 @@
         "https://www.instagram.com/__investherway__/reel/DQV9xVrDApl/",
         "https://www.instagram.com/__investherway__/reel/DQTMQpJjEaE/",
         "https://www.instagram.com/__investherway__/reel/DQTZm9hjLD8/"
-    ]
+    ],
+    "trainersInstagramLinks": {
+        "Gargi": {
+            "link": "https://www.instagram.com/__investherway__",
+            "name": "Gargi"
+        },
+        "Akash": {
+            "link": "https://www.instagram.com/my_wealth_power/",
+            "name": "Akash"
+        }
+    }
 }
