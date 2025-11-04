@@ -46,7 +46,7 @@ export default function AboutUs() {
 							id="about-heading"
 							className="text-3xl sm:text-4xl font-extrabold text-[#FFCF25] leading-tight inline-block"
 						>
-							About Charu Trading Academy
+							About Charu Wealth Academy
 							<span
 								aria-hidden
 								className={`block h-1 bg-[#FFCF25] mt-3 origin-left transition-all duration-700 ${
@@ -81,7 +81,7 @@ export default function AboutUs() {
 					style={prefersReducedMotion ? { transition: "none" } : undefined}>
 						<Image 
 							src="/Charu_Big_Logo.png" 
-							alt="Charu Trading Academy" 
+							alt="Charu Wealth Academy" 
 							width={400} 
 							height={400}
 							className="w-auto h-48 md:h-64 lg:h-80 object-contain"

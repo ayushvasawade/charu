@@ -1,0 +1,49 @@
+{
+    "courses": [
+        {
+            "id": "Basic",
+            "title": "Beginner Wealth Foundations",
+            "description": "Learn market basics, chart reading, and risk rules to start trading with confidence.",
+            "details": [
+                "Structured Learning Path",
+                "Interactive Video Quizzes",
+                "Basic Market Insights",
+                "Official Course Certificate",
+                "1-Month Live Access"
+            ],
+            "price": 5000
+        },
+        {
+            "id": "Advanced",
+            "title": "Advanced Strategy Mastery",
+            "description": "Learn advanced wealth strategies, risk management, and trading psychology to become a successful trader.",
+            "details": [
+                "Master Advanced Strategies",
+                "Risk-Free Trading Lab",
+                "Expert Market Analysis",
+                "Personal Portfolio Assistance",
+                "2-Month Strategy Access"
+            ],
+            "price": 12500
+        },
+        {
+            "id": "Advance Plus Basic Combo",
+            "title": "Advanced Plus Beginner Combo",
+            "description": "Learn options and derivatives, risk management, and trading psychology to become a successful trader.",
+            "details": [
+                "Complete Course Syllabus",
+                "Premium Tools Access",
+                "Career Placement Support",
+                "60 Total Live Sessions",
+                "Lifetime Recording Access"
+            ],
+            "price": 25000
+        }
+    ],
+    "enrollLinks": {
+        "Basic": "https://forms.gle/k43KvWNn9HsjLddx8",
+        "Advanced": "https://forms.gle/A4fHnhuSCykhohfs5",
+        "Advance Plus Basic Combo": "https://forms.gle/LJP57VBtQ27saNM38"
+    }
+}
+

@@ -14,7 +14,7 @@ const REVIEWS: Review[] = [
   {
     id: "r1",
     rating: 5,
-    text: "Charu Trading Academy transformed my approach to the markets — practical lessons, live sessions, and mentorship that actually works.",
+    text: "Charu Wealth Academy transformed my approach to the markets — practical lessons, live sessions, and mentorship that actually works.",
     name: "Priya K.",
     meta: "Student — Foundations of Trading",
   },
