@@ -42,9 +42,10 @@ export default function WhyChooseUs() {
 
   return (
     <section
+      id="why"
       ref={ref}
       aria-labelledby="why-choose-heading"
-      className="bg-white py-16 md:py-24"
+      className="bg-white py-16 md:py-24 scroll-mt-20"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">

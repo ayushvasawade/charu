@@ -1,16 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const navItems = [
   { href: "#about", label: "About Us" },
   { href: "#courses", label: "Courses" },
   { href: "#trainers", label: "Trainers" },
+  { href: "#features", label: "Features" },
   { href: "#reviews", label: "Reviews" },
-  { href: "https://instagram.com", label: "Instagram" },
   { href: "#why", label: "Why Choose Us" },
   { href: "#start", label: "Start Your Journey" },
+  { href: "#instagram", label: "Instagram" },
 ];
 
 export default function SiteHeader() {
@@ -47,9 +49,19 @@ export default function SiteHeader() {
       }`}
     >
       <nav className="backdrop-blur-sm rounded-full bg-white/60 dark:bg-black/60 border border-transparent px-6 py-3 flex items-center justify-between shadow-sm">
-        <div className="flex items-center gap-4">
-          <Link href="/" className="text-xl font-semibold text-[var(--text)]">
-            Charu Trading Academy
+        <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
+            <Image 
+              src="/Charu_logo.png" 
+              alt="Charu Trading Academy Logo" 
+              width={40} 
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
+            <span className="text-xl font-semibold text-[var(--text)]">
+              Charu Trading Academy
+            </span>
           </Link>
         </div>
 
@@ -58,6 +70,16 @@ export default function SiteHeader() {
             <li key={item.href}>
               <a
                 href={item.href}
+                onClick={(e) => {
+                  // Only handle smooth scroll for hash links, not external URLs
+                  if (item.href.startsWith('#')) {
+                    e.preventDefault();
+                    const element = document.getElementById(item.href.substring(1));
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                  }
+                }}
                 className="group relative inline-block text-sm font-medium text-var-text hover:text-[var(--accent)] transition-colors"
               >
                 {item.label}
@@ -110,7 +132,17 @@ export default function SiteHeader() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={(e) => {
+                      // Only handle smooth scroll for hash links, not external URLs
+                      if (item.href.startsWith('#')) {
+                        e.preventDefault();
+                        const element = document.getElementById(item.href.substring(1));
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      }
+                      setMenuOpen(false);
+                    }}
                     className="block text-lg font-medium hover:text-yellow-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300"
                   >
                     {item.label}
