@@ -310,7 +310,7 @@ export default function Hero() {
           <div className="max-w-2xl">
             <h1 className="mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-var-text">
               {(
-                "Unlock Your Financial Future with Charu Trading Academy"
+                "Unlock Your Financial Future with Charu Wealth Academy"
               ).split(" ").map((word, idx) => (
                 <span key={idx} className="inline-block mr-2">
                   <span className="fill-from-bottom" tabIndex={0} data-word={word}>

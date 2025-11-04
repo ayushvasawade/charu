@@ -53,14 +53,14 @@ export default function SiteHeader() {
           <Link href="/" className="flex items-center gap-3">
             <Image 
               src="/Charu_logo.png" 
-              alt="Charu Trading Academy Logo" 
+              alt="Charu Wealth Academy Logo" 
               width={40} 
               height={40}
               className="h-10 w-auto"
               priority
             />
             <span className="text-xl font-semibold text-[var(--text)]">
-              Charu Trading Academy
+              Charu Wealth Academy
             </span>
           </Link>
         </div>

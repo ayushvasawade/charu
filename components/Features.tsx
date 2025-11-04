@@ -100,19 +100,21 @@ export default function Features() {
         </div>
 
         <div className="border-t border-[#F6F6F6] pt-8">
-          <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {FEATURES.map((f, idx) => {
-              const isVisible = visibleIds.includes(f.id);
-              const delay = `${idx * 75}`;
-              return (
-                <article
-                  key={f.id}
-                  data-feature={f.id}
-                  className={`relative overflow-hidden rounded-lg bg-[#F6F6F6] p-6 transition-transform duration-500 ease-out transform ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                  } hover:scale-[1.02]`}
-                  style={prefersReducedMotion ? { transition: "none" } : { transitionDelay: `${delay}ms` }}
-                >
+          <div ref={containerRef}>
+            {/* First 3 items in grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+              {FEATURES.slice(0, 3).map((f, idx) => {
+                const isVisible = visibleIds.includes(f.id);
+                const delay = `${idx * 75}`;
+                return (
+                  <article
+                    key={f.id}
+                    data-feature={f.id}
+                    className={`relative overflow-hidden rounded-lg bg-[#F6F6F6] p-6 transition-transform duration-500 ease-out transform ${
+                      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                    } hover:scale-[1.02]`}
+                    style={prefersReducedMotion ? { transition: "none" } : { transitionDelay: `${delay}ms` }}
+                  >
                   <div className="absolute left-0 top-0 h-1 w-full bg-transparent" aria-hidden />
                   <div className="flex items-start gap-4">
                     <div className="shrink-0 rounded-md p-3 bg-white border-t-4 border-[#FFCF25] drop-shadow-sm transition-shadow duration-300 hover:shadow-[0_10px_30px_rgba(255,207,37,0.16)]">
@@ -130,6 +132,41 @@ export default function Features() {
                 </article>
               );
             })}
+            </div>
+            
+            {/* Last 2 items centered */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+              {FEATURES.slice(3).map((f, idx) => {
+                const actualIdx = 3 + idx;
+                const isVisible = visibleIds.includes(f.id);
+                const delay = `${actualIdx * 75}`;
+                return (
+                  <article
+                    key={f.id}
+                    data-feature={f.id}
+                    className={`relative overflow-hidden rounded-lg bg-[#F6F6F6] p-6 transition-transform duration-500 ease-out transform w-full sm:w-auto sm:max-w-sm ${
+                      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                    } hover:scale-[1.02]`}
+                    style={prefersReducedMotion ? { transition: "none" } : { transitionDelay: `${delay}ms` }}
+                  >
+                    <div className="absolute left-0 top-0 h-1 w-full bg-transparent" aria-hidden />
+                    <div className="flex items-start gap-4">
+                      <div className="shrink-0 rounded-md p-3 bg-white border-t-4 border-[#FFCF25] drop-shadow-sm transition-shadow duration-300 hover:shadow-[0_10px_30px_rgba(255,207,37,0.16)]">
+                        <div className="text-[#FFCF25]">{f.icon}</div>
+                      </div>
+
+                      <div>
+                        <h4 className="text-lg font-semibold text-[#181818]">{f.title}</h4>
+                        <p className="mt-1 text-sm text-[#181818] opacity-80">{f.desc}</p>
+                      </div>
+                    </div>
+
+                    {/* hover glow */}
+                    <span className="pointer-events-none absolute inset-0 rounded-lg ring-0 transition-shadow duration-300" />
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

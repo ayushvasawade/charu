@@ -25,20 +25,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Overview */}
           <div>
-            <a href="/" aria-label="Charu Trading Academy home" className="inline-flex items-center gap-3">
+            <a href="/" aria-label="Charu Wealth Academy home" className="inline-flex items-center gap-3">
               <Image 
                 src="/Charu_logo.png" 
-                alt="Charu Trading Academy Logo" 
+                alt="Charu Wealth Academy Logo" 
                 width={40} 
                 height={40}
                 className="h-10 w-auto"
               />
-              <span className="text-xl font-semibold">Charu Trading Academy</span>
+              <span className="text-xl font-semibold">Charu Wealth Academy</span>
             </a>
 
             <p className="mt-4 text-sm text-gray-200">Empowering you to trade with confidence.</p>
 
-            <p className="mt-6 text-xs text-gray-400">© {year} Charu Trading Academy. All rights reserved.</p>
+            <p className="mt-6 text-xs text-gray-400">© {year} Charu Wealth Academy. All rights reserved.</p>
           </div>
 
           {/* Quick Links */}
@@ -154,7 +154,7 @@ export default function Footer() {
         {/* Bottom small print */}
         <div className="mt-10 border-t border-gray-800 pt-6">
           <p className="text-xs text-gray-500 text-center">
-            Designed with care — accessible, responsive and branded for Charu Trading Academy.
+            Designed with care — accessible, responsive and branded for Charu Wealth Academy.
           </p>
         </div>
       </div>
