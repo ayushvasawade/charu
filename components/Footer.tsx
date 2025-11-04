@@ -1,18 +1,20 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   const links = [
-    { name: "About Us", href: "/about" },
-    { name: "Courses", href: "/courses" },
-    { name: "Trainers", href: "/trainers" },
-    { name: "Reviews", href: "/reviews" },
-    { name: "Instagram", href: "/instagram" },
-    { name: "Why Choose Us", href: "/why-choose-us" },
-    { name: "Start Your Journey", href: "/start" },
+    { name: "About Us", href: "#about" },
+    { name: "Courses", href: "#courses" },
+    { name: "Trainers", href: "#trainers" },
+    { name: "Features", href: "#features" },
+    { name: "Reviews", href: "#reviews" },
+    { name: "Why Choose Us", href: "#why" },
+    { name: "Start Your Journey", href: "#start" },
+    { name: "Instagram", href: "#instagram" },
   ];
 
   return (
@@ -24,10 +26,13 @@ export default function Footer() {
           {/* Brand Overview */}
           <div>
             <a href="/" aria-label="Charu Trading Academy home" className="inline-flex items-center gap-3">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <circle cx="12" cy="12" r="10" fill="#FFCF25" />
-                <path d="M7 13l3-3 3 3 4-6" stroke="#181818" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <Image 
+                src="/Charu_logo.png" 
+                alt="Charu Trading Academy Logo" 
+                width={40} 
+                height={40}
+                className="h-10 w-auto"
+              />
               <span className="text-xl font-semibold">Charu Trading Academy</span>
             </a>
 
@@ -44,6 +49,16 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
+                    onClick={(e) => {
+                      // Only handle smooth scroll for hash links
+                      if (link.href.startsWith('#')) {
+                        e.preventDefault();
+                        const element = document.getElementById(link.href.substring(1));
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      }
+                    }}
                     className="text-white hover:text-yellow-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818]"
                   >
                     <span className="underline-offset-2 hover:underline">{link.name}</span>

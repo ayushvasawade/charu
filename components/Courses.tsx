@@ -61,7 +61,7 @@ export default function Courses() {
   }, []);
 
   return (
-    <section className="bg-white py-20 px-6">
+    <section id="courses" className="bg-white py-20 px-6 scroll-mt-20">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-[#FFCF25] text-center">
           Our Courses
@@ -99,12 +99,13 @@ export default function Courses() {
 
                 <div className="mt-4 flex items-center justify-between">
                   <div className="text-sm text-[#666]">&nbsp;</div>
-                  <button
-                    className="btn-enroll inline-block rounded-full bg-[#FFBF00] px-4 py-2 text-sm font-semibold text-white transition-transform duration-200"
+                  <a
+                    href="/"
+                    className="btn-enroll inline-block rounded-full bg-[#FFBF00] px-4 py-2 text-sm font-semibold text-white transition-transform duration-200 hover:scale-105 hover:bg-[#FFCF25]"
                     aria-label={`Enroll in ${c.title}`}
                   >
                     Enroll Now
-                  </button>
+                  </a>
                 </div>
               </article>
             );

@@ -26,8 +26,9 @@ export default function CTASection() {
 
   return (
     <section
+      id="start"
       ref={ref}
-      className="relative overflow-hidden bg-[var(--subtle)] py-14 md:py-20"
+      className="relative overflow-hidden bg-[var(--subtle)] py-14 md:py-20 scroll-mt-20"
       aria-labelledby="start-journey-heading"
     >
       {/* Decorative shapes */}

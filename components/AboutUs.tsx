@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function AboutUs() {
 	const ref = useRef<HTMLElement | null>(null);
@@ -32,12 +33,14 @@ export default function AboutUs() {
 
 	return (
 		<section
+			id="about"
 			ref={ref}
 			aria-labelledby="about-heading"
-			className="relative overflow-hidden bg-white py-20 px-6 md:py-28"
+			className="relative overflow-hidden bg-white py-20 px-6 md:py-28 scroll-mt-32 md:scroll-mt-40"
 		>
 			<div className="mx-auto max-w-6xl">
-				<div className="relative flex flex-col md:flex-row gap-8 items-start">
+				<div className="relative flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
+					{/* Text Content - Left Side */}
 					<div className="md:flex-1">
 						<h2
 							id="about-heading"
@@ -71,16 +74,19 @@ export default function AboutUs() {
 						</p>
 					</div>
 
-					{/* Vertical yellow accent line on the right that animates upward */}
-					<div className="md:w-48 flex justify-end md:items-stretch">
-						<div className="relative h-48 w-1/3 md:w-1">
-							<span
-								className={`absolute right-0 bottom-0 w-1 bg-[#FFCF25] transform origin-bottom transition-all duration-900 ${
-									inView ? "translate-y-0 scale-y-100" : "translate-y-6 scale-y-0"
-								}`}
-								style={prefersReducedMotion ? { transition: "none" } : undefined}
-							/>
-						</div>
+					{/* Big Logo - Right Side */}
+					<div className={`md:w-96 md:flex-shrink-0 flex justify-center md:justify-end transform transition-all duration-700 delay-200 ${
+						inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"
+					}`}
+					style={prefersReducedMotion ? { transition: "none" } : undefined}>
+						<Image 
+							src="/Charu_Big_Logo.png" 
+							alt="Charu Trading Academy" 
+							width={400} 
+							height={400}
+							className="w-auto h-48 md:h-64 lg:h-80 object-contain"
+							priority
+						/>
 					</div>
 				</div>
 			</div>

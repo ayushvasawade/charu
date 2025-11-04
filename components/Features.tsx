@@ -92,7 +92,7 @@ export default function Features() {
   }, [visibleIds.length]);
 
   return (
-    <section className="bg-white py-20 px-6">
+    <section id="features" className="bg-white py-20 px-6 scroll-mt-20">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8">
           <h3 className="text-2xl sm:text-3xl font-bold text-[#181818]">Our Features</h3>

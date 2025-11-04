@@ -113,7 +113,7 @@ export default function Reviews() {
   const transitionStyle = prefersReducedMotion ? { transition: "none" } : { transition: "transform 480ms cubic-bezier(.2,.9,.3,1)" };
 
   return (
-    <section className="bg-white py-20 px-6">
+    <section id="reviews" className="bg-white py-20 px-6 scroll-mt-20">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-[#FFCF25] text-center">
           Student Reviews
