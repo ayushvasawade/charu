@@ -74,21 +74,21 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-gray-200">
               <li>
                 <a
-                  href="mailto:support@charutradingacademy.com"
+                  href="mailto:daisyfernandes1104@gmail.com"
                   className="hover:text-yellow-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818]"
                   aria-label="Email support"
                 >
-                  support@charutradingacademy.com
+                  daisyfernandes1104@gmail.com
                 </a>
               </li>
 
               <li>
                 <a
-                  href="tel:+911234567890"
+                  href="tel:+919834505162"
                   className="hover:text-yellow-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818]"
                   aria-label="Call us"
                 >
-                  +91 12345 67890
+                  +91 98345 05162
                 </a>
               </li>
 
@@ -97,7 +97,7 @@ export default function Footer() {
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#FFCF25" />
                   <circle cx="12" cy="9" r="2.5" fill="#181818" />
                 </svg>
-                <span className="text-gray-200">123 Market Street, Mumbai, India</span>
+                <span className="text-gray-200">Sr. no: 7/1,7/2, next Hotel Mehfil, 7/2/1, DN Parande Park Marg, near ganesh Temple, Dhanori, Pune, Pimpri-Chinchwad, Maharashtra 411015</span>
               </li>
             </ul>
           </div>
