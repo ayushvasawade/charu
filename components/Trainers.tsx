@@ -42,7 +42,7 @@ export default function Trainers() {
         const trainersData: Trainer[] = [
           {
             id: "t1",
-            name: "Aakash",
+            name: "Akash Mandve",
             bio: "Senior Trader & Mentor with 8+ years of live trading experience across equities and derivatives.",
             expertise: ["Live Execution", "Risk Management", "Strategy Building"],
             image: "/trainer-1.png",
